@@ -5,7 +5,12 @@
         var chainfield = "#id_" + $(item).attr("data-chainfield");
         var url = $(item).attr("data-url");
         var id = "#" + $(item).attr("id");
-        var value = JSON.parse($(item).attr("data-value"));
+        
+        var value = $(item).attr("data-value");
+        try {
+            value = JSON.parse(value);
+        } catch (e) { /**/ }
+        
         var auto_choose = $(item).attr("data-auto_choose");
         if ($(item).hasClass("chained-fk")) {
             var empty_label = $(item).attr("data-empty_label");
